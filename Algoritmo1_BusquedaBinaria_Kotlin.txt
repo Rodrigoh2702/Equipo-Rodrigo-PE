@@ -1,0 +1,11 @@
+ fun binarySearch(list: List<String>, e: Int): Int {
+        fun go(low: Int, high: Int): Int {
+            val mid = (low + high) / 2
+
+            return if (low == mid) 0 else when (list[mid].toInt()) {
+                e -> mid
+                else -> if (e < list[mid].toInt()) go(low, mid) else go(mid, high)
+            }
+        }
+        return go(0, list.size)
+    }
